@@ -18,8 +18,6 @@ router.post("/create-checkout", async (req, res) => {
         return {
           price_data: {
             currency: "usd",
-            object:"price",
-            billing_scheme:"per_unit",
             product_data: {
               name: item.title,
             },

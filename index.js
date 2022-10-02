@@ -6,16 +6,12 @@ const app = express();
 const data = require("./routes/products");
 const signup = require("./routes/signup");
 const login = require("./routes/login");
-const payment=require('./routes/payment');
+const payment = require("./routes/payment");
 
 dotenv.config({ path: "./.env" });
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-)
+app.use(cors());
 
 mongoose
   .connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })

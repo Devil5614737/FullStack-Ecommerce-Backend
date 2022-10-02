@@ -15,16 +15,19 @@ router.post("/create-checkout", async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: req.body.items.map((item) => {
-        const storeItem = item._id;
         return {
           price_data: {
             currency: "usd",
+            object:"price",
+            billing_scheme:"per_unit",
             product_data: {
               name: item.title,
             },
             unit_amount: item.price,
+            
           },
           quantity: item.quantity,
+          
         };
       }),
       success_url: "http://localhost:3000/success",
